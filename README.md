@@ -81,10 +81,22 @@ npm run dev
 
 You can see the demo in your browser at http://localhost:5173.
 
-Check the integrity:
+Check the types:
 
 ```bash
 npm run check
+```
+
+Build and validate the package:
+
+```bash
+npm run prepack
+```
+
+Lint the code:
+
+```bash
+npm run lint
 ```
 
 ## License
