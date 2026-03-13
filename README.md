@@ -5,7 +5,7 @@ Reusable Svelte 5 component for rendering [Observable Plot](https://observablehq
 ## Install
 
 ```sh
-npm install svplot @observablehq/plot
+npm install @travishorn/svplot @observablehq/plot
 ```
 
 `@observablehq/plot` is a peer dependency because you'll typically want to
@@ -16,7 +16,7 @@ create marks and plot options directly.
 ```svelte
 <script>
 	import * as Plot from '@observablehq/plot';
-	import { ObservablePlot } from 'svplot';
+	import { ObservablePlot } from '@travishorn/svplot';
 
 	const data = [
 		{ category: 'East', value: 1 },

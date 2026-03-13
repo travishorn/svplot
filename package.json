@@ -1,5 +1,5 @@
 {
-	"name": "svplot",
+	"name": "@travishorn/svplot",
 	"version": "0.0.1",
 	"description": "Reusable Svelte component for rendering Observable Plot charts.",
 	"scripts": {
