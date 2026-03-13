@@ -19,6 +19,12 @@
 			})
 		]
 	});
+
+	setInterval(() => {
+		const i = Math.floor(Math.random() * data.length); // Choose a random bar
+		data[i] = { ...data[i], value: Math.random() * 10 }; // Set a random value
+		data = [...data]; // Trigger reactivity
+	}, 1000);
 </script>
 
 <ObservablePlot {options} />

@@ -9,7 +9,7 @@ npm install @travishorn/svplot @observablehq/plot
 ```
 
 `@observablehq/plot` is a peer dependency because you'll typically want to
-create marks and plot options directly.
+create marks and plot options with it.
 
 ## Usage
 
@@ -18,14 +18,14 @@ create marks and plot options directly.
 	import * as Plot from '@observablehq/plot';
 	import { ObservablePlot } from '@travishorn/svplot';
 
-	const data = [
+	let data = $state([
 		{ category: 'East', value: 1 },
 		{ category: 'North', value: 6 },
 		{ category: 'South', value: 8 },
 		{ category: 'West', value: 5 }
-	];
+	]);
 
-	const options = {
+	let options = $derived({
 		grid: true,
 		marks: [
 			Plot.barY(data, {
@@ -34,10 +34,25 @@ create marks and plot options directly.
 				fill: 'category'
 			})
 		]
-	};
+	});
 </script>
 
 <ObservablePlot {options} />
+```
+
+When `options` changes, the component disposes the current plot and renders a
+new one. So if you wrap your data with `$state()` and your options with
+`$derived()`, as seen above, you can make the visualization "live."
+
+For example, adding the following block will cause a random bar to change every
+1 second. The rendered visualization updates when the data does.
+
+```javascript
+setInterval(() => {
+	const i = Math.floor(Math.random() * data.length); // Choose a random bar
+	data[i] = { ...data[i], value: Math.random() * 10 }; // Set a random value
+	data = [...data]; // Trigger reactivity
+}, 1000);
 ```
 
 ## API
@@ -46,10 +61,10 @@ create marks and plot options directly.
 
 Props:
 
-- `options`: `Plot.PlotOptions` used to create the chart.
-- Any additional `div` attributes are forwarded to the container element.
-
-When `options` changes, the component disposes the current plot and renders a new one.
+- `options`: The [plot
+  options](https://observablehq.com/plot/features/plots#plot) passed to
+  Observable Plot, which are used to create the chart.
+- Any additional attributes are forwarded to the `div` container element.
 
 ## Development
 
