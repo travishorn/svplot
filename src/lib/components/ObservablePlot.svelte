@@ -1,3 +1,5 @@
+<svelte:options runes={true} />
+
 <script>
 	import * as Plot from '@observablehq/plot';
 
