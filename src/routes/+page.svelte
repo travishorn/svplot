@@ -27,4 +27,4 @@
 	}, 1000);
 </script>
 
-<ObservablePlot {options} />
+<div use:ObservablePlot={options} role="img"></div>

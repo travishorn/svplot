@@ -1,6 +1,6 @@
 # svplot
 
-Reusable Svelte 5 component for rendering [Observable Plot](https://observablehq.com/plot) charts.
+Reusable Svelte 5 action for rendering [Observable Plot](https://observablehq.com/plot) charts.
 
 ## Install
 
@@ -37,10 +37,10 @@ create marks and plot options with it.
 	});
 </script>
 
-<ObservablePlot {options} />
+<div use:ObservablePlot={options} role="img"></div>
 ```
 
-When `options` changes, the component disposes the current plot and renders a
+When `options` changes, the action disposes the current plot and renders a
 new one. So if you wrap your data with `$state()` and your options with
 `$derived()`, as seen above, you can make the visualization "live."
 
@@ -59,12 +59,12 @@ setInterval(() => {
 
 ### `ObservablePlot`
 
-Props:
+Usage:
 
-- `options`: The [plot
+- Use as a Svelte action: `use:ObservablePlot={options}`.
+- `options` is the [plot
   options](https://observablehq.com/plot/features/plots#plot) passed to
   Observable Plot, which are used to create the chart.
-- Any additional attributes are forwarded to the `div` container element.
 
 ## Development
 

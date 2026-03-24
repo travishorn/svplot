@@ -1,1 +1,1 @@
-export { default as ObservablePlot } from './components/ObservablePlot.svelte';
+export { ObservablePlot } from './ObservablePlot.js';

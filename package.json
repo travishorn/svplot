@@ -1,7 +1,7 @@
 {
 	"name": "@travishorn/svplot",
 	"version": "1.0.2",
-	"description": "Reusable Svelte component for rendering Observable Plot charts.",
+	"description": "Reusable Svelte action for rendering Observable Plot charts.",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",
